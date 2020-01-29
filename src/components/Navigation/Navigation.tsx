@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Navigation extends Component {
     render() {
         return (
             <nav className="nav">
-                <a className="nav-link active" href="#">
-                    GitHub Users
-                </a>
-                <a className="nav-link" href="#">
-                    Following
-                </a>
+                <Link className="nav-link pl-0 active" to="/">GitHub Users</Link>
+                <Link className="nav-link" to="/following">Following</Link>
             </nav>
         );
     }
