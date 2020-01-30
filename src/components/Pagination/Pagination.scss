@@ -1,0 +1,13 @@
+.page-item {
+    &.disabled {
+        .page-link {
+            background: transparent;
+            border: none;
+        }
+    }
+
+    .page-link {
+        background: transparent;
+        border: none;
+    }
+}
