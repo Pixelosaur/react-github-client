@@ -1,23 +1,29 @@
+@import './scss/_colors.scss';
+
 body {
     font-family: 'Raleway', sans-serif;
-    background: #ebe9e9;
+    background: $light-color;
+    color: $dark-color;
 
     a {
-        background: linear-gradient(to bottom, #ffbaa3 0%, #ffbaa3 100%) 0 100% repeat-x;
+        background: linear-gradient(to bottom, $secondary-color 0%, $secondary-color 100%) 0 100%
+            repeat-x;
         background-size: 3px 3px;
         text-decoration: none;
         transition: background-size 0.2s;
-        color: #ef5d60;
+        color: $primary-color;
         padding: 0.5rem;
+        display: inline-block;
 
         &:hover {
-            color: #ef5d60;
+            color: $primary-color;
             background-size: 4px 50px;
         }
 
-      &.active {
-        background: linear-gradient(to bottom, #ef5d60 0%, #ef5d60 100%) 0 100% repeat-x;
-        background-size: 3px 3px;
-      }
+        &.active {
+            background: linear-gradient(to bottom, $primary-color 0%, $primary-color 100%) 0 100%
+                repeat-x;
+            background-size: 3px 3px;
+        }
     }
 }

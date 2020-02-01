@@ -1,8 +1,10 @@
+@import '../../scss/_colors.scss';
+
 header {
     padding: 40px 20px;
     h1 {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #2e294e;
+        color: $dark-color;
     }
 }
