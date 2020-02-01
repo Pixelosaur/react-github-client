@@ -21,7 +21,9 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
     }
 
     /* Get the list of Github users based on the given query params
-     * update the state and then get the Single User details */
+     * returns the single user's details array from getSingleUser call
+     * as a Promise and then updates the state
+     */
     getUsers(): void {
         const url: string = `https://api.github.com/search/users`;
         const params = {
@@ -37,24 +39,26 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
                 params,
             })
             .then((response: AxiosResponse<GitHubApiResponseInterface>) => {
-                this.setState({ users: response.data.items, isLoaded: true });
-
-                this.state.users.forEach((user: UserInterface) => {
-                    this.getSingleUser(user.login);
-                });
+                return Promise.all(
+                    response.data.items.map((user: UserInterface) =>
+                        this.getSingleUser(user.login),
+                    ),
+                );
+            })
+            .then((users: UserDetailsInterface[]) => {
+                this.setState({ users, isLoaded: true });
             })
             .catch((error: any) => console.log(error));
     }
 
-    /* Get single user's details */
-    getSingleUser(username: string): Promise<any> {
+    /* Get single user's details and on fulfillment return the data */
+    getSingleUser(username: string): Promise<UserDetailsInterface> {
         const url: string = `https://api.github.com/users/${username}`;
         return axios
             .get<UserDetailsInterface>(url)
-            .then((res: AxiosResponse<UserDetailsInterface>) => {
-                console.log(res.data);
-            })
-            .catch((error: any) => console.log(error));
+            .then((response: AxiosResponse<UserDetailsInterface>) => {
+                return response.data;
+            });
     }
 
     /* Updates the page state and then calls the getUsers  */
@@ -66,11 +70,13 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
         return (
             <div className="mt-5 mb-5">
                 <div className="row">
-                    {this.state.isLoaded
-                        ? this.state.users.map((user: UserInterface, index: number) => (
-                              <GitHubUserCard user={user} key={index} />
-                          ))
-                        : 'Loading...'}
+                    {this.state.isLoaded ? (
+                        this.state.users.map((user: UserDetailsInterface, index: number) => (
+                            <GitHubUserCard user={user} key={index} />
+                        ))
+                    ) : (
+                        <div className="col">Loading...</div>
+                    )}
                 </div>
 
                 <div className="row mt-4">

@@ -1,7 +1,7 @@
-import { UserInterface } from './User.interface';
+import { UserDetailsInterface } from './UserDetails.interface';
 
 export interface UsersStateInterface {
-    users: UserInterface[];
+    users: UserDetailsInterface[];
     page: number;
     pageSize: number;
     isLoaded: boolean;

@@ -4,7 +4,7 @@ import { UserInterface } from '../../interfaces/User.interface';
 import { UserDetailsInterface } from '../../interfaces/UserDetails.interface';
 
 type Props = {
-    user: UserInterface;
+    user: UserDetailsInterface;
 };
 
 export default class GitHubUserCard extends Component<Props, {}> {
@@ -18,7 +18,7 @@ export default class GitHubUserCard extends Component<Props, {}> {
                         alt="user avatar"
                     />
                     <div className="card-body">
-                        <h5 className="card-title">{this.props.user.login}</h5>
+                        <h5 className="card-title">{this.props.user.name}</h5>
                         <h6 className="card-subtitle mb-3 text-muted">{this.props.user.login}</h6>
                         <p className="card-text">
                             Some quick example text to build on the card title and make up the bulk
