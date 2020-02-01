@@ -1,1 +1,23 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background: #ebe9e9;
 
+    a {
+        background: linear-gradient(to bottom, #ffbaa3 0%, #ffbaa3 100%) 0 100% repeat-x;
+        background-size: 3px 3px;
+        text-decoration: none;
+        transition: background-size 0.2s;
+        color: #ef5d60;
+        padding: 0.5rem;
+
+        &:hover {
+            color: #ef5d60;
+            background-size: 4px 50px;
+        }
+
+      &.active {
+        background: linear-gradient(to bottom, #ef5d60 0%, #ef5d60 100%) 0 100% repeat-x;
+        background-size: 3px 3px;
+      }
+    }
+}
