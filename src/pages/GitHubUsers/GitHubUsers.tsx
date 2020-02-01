@@ -57,9 +57,9 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
             .catch((error: any) => console.log(error));
     }
 
-    onPageChange(updatedPage: number) {
-        this.setState({ page: updatedPage });
-        this.getUsers();
+    /* Updates the page state and then calls the getUsers  */
+    onPageChange(currentPage: number) {
+        this.setState({ page: currentPage }, () => this.getUsers());
     }
 
     render() {
