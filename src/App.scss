@@ -10,13 +10,13 @@ body {
             repeat-x;
         background-size: 3px 3px;
         text-decoration: none;
-        transition: background-size 0.2s;
+        transition: color 300ms ease-in-out, background-size 300ms;
         color: $primary-color;
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
         display: inline-block;
 
         &:hover {
-            color: $primary-color;
+            color: $dark-color;
             background-size: 4px 50px;
         }
 
