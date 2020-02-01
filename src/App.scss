@@ -26,4 +26,14 @@ body {
             background-size: 3px 3px;
         }
     }
+
+    .badge {
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+        vertical-align: middle;
+
+        &.badge-primary {
+            background-color: $dark-color;
+        }
+    }
 }

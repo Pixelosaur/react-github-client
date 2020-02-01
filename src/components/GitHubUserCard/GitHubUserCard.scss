@@ -1,11 +1,56 @@
+@import '../../scss/colors';
+
 .card {
     position: relative;
     box-shadow: none;
+
+    .card-body {
+        z-index: 1;
+
+        .card-title {
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: lighten($dark-color, 60%);
+        }
+
+        .location-wrapper {
+            .fas {
+                color: $secondary-color;
+            }
+            span {
+                font-size: 0.875rem;
+                font-weight: 700;
+            }
+        }
+
+        .card-link {
+            display: block;
+            text-align: center;
+        }
+
+        .list-group {
+            .list-group-item {
+                border-bottom: 1px solid lighten($dark-color, 70%);
+                display: flex;
+                justify-content: space-between;
+                span {
+                    &:first-child {
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+        }
+    }
 
     &::before {
         content: '';
         position: absolute;
         display: block;
+        z-index: 0;
         top: 0;
         left: 0;
         width: 100%;
@@ -17,7 +62,6 @@
 
     &:hover,
     &:focus {
-        cursor: pointer;
         &::before {
             opacity: 1;
         }
