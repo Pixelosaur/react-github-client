@@ -12,7 +12,7 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
     state: UsersStateInterface = {
         users: [],
         page: 1,
-        pageSize: 10,
+        pageSize: 12,
         isLoaded: false,
     };
 
