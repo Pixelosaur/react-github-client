@@ -57,6 +57,11 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
             .catch((error: any) => console.log(error));
     }
 
+    onPageChange(updatedPage: number) {
+        this.setState({ page: updatedPage });
+        this.getUsers();
+    }
+
     render() {
         return (
             <div className="mt-5 mb-5">
@@ -69,7 +74,14 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
                 </div>
 
                 <div className="row mt-4">
-                    <div className="col">{this.state.isLoaded ? <Pagination /> : null}</div>
+                    <div className="col">
+                        {this.state.isLoaded ? (
+                            <Pagination
+                                page={this.state.page}
+                                currentPage={this.onPageChange.bind(this)}
+                            />
+                        ) : null}
+                    </div>
                 </div>
             </div>
         );

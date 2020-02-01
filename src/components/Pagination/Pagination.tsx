@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
 import './Pagination.scss';
 
-export default class Pagination extends Component {
+type Props = {
+    currentPage: any;
+    page: number;
+};
+
+export default class Pagination extends Component<Props, {}> {
+    onPageChange(): void {
+        this.props.currentPage(this.props.page + 1);
+    }
+
     render() {
         return (
             <nav>
                 <ul className="pagination justify-content-between">
-                    <li className="page-item disabled">
-                        <a className="page-link" href="#">
+                    <li className={`page-item ${this.props.page === 1 ? 'disabled' : null}`}>
+                        <span className="page-link">
+                            <i className="fas fa-long-arrow-alt-left pr-2" />
                             Previous
-                        </a>
+                        </span>
                     </li>
                     <li className="page-item">
-                        <a className="page-link" href="#">
+                        <span className="page-link" onClick={this.onPageChange.bind(this)}>
                             Next
-                        </a>
+                            <i className="fas fa-long-arrow-alt-right pl-2" />
+                        </span>
                     </li>
                 </ul>
             </nav>
