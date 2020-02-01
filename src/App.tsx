@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
-import { Route, Switch } from 'react-router';
+import { Route, Switch, Redirect } from 'react-router';
 import GitHubUsers from './pages/GitHubUsers/GitHubUsers';
 import Following from './pages/Following/Following';
 
@@ -23,8 +23,9 @@ class App extends Component {
                 <div className="row">
                     <div className="col">
                         <Switch>
-                            <Route path="/" component={GitHubUsers} exact />
+                            <Route path="/github-users" component={GitHubUsers} />
                             <Route path="/following" component={Following} />
+                            <Redirect from="/" to="github-users" exact/>
                         </Switch>
                     </div>
                 </div>
