@@ -7,6 +7,10 @@
     .card-body {
         z-index: 1;
 
+        .fas {
+            color: $secondary-color;
+        }
+
         .card-title {
             font-weight: 700;
         }
@@ -18,9 +22,6 @@
         }
 
         .location-wrapper {
-            .fas {
-                color: $secondary-color;
-            }
             span {
                 font-size: 0.875rem;
                 font-weight: 700;
