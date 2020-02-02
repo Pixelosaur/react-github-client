@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import './Pagination.scss';
+import { PaginationPropsInterface } from '../../interfaces/PaginationProps.interface';
 
-type Props = {
-    currentPage: any;
-    page: number;
-};
-
-export default class Pagination extends Component<Props, {}> {
+export default class Pagination extends Component<PaginationPropsInterface, {}> {
     onNextPageChange(): void {
         this.props.currentPage(this.props.page + 1);
     }

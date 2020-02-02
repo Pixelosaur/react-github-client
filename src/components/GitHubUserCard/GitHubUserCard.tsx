@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import './GitHubUserCard.scss';
 import { Link } from 'react-router-dom';
-import { UserDetailsInterface } from '../../interfaces/UserDetails.interface';
+import { GitHubUserCardPropsInterface } from '../../interfaces/GitHubUserCardProps.interface';
 
-type Props = {
-    user: UserDetailsInterface;
-};
-
-export default class GitHubUserCard extends Component<Props, {}> {
+export default class GitHubUserCard extends Component<GitHubUserCardPropsInterface, {}> {
     render() {
         return (
             <div className="col-sm-12 col-md-6 col-lg-4">
