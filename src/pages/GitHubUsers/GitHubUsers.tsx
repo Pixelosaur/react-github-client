@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import GitHubUserCard from '../../components/GitHubUserCard/GitHubUserCard';
+import UserCard from '../../components/UserCard/UserCard';
 import Pagination from '../../components/Pagination/Pagination';
 import { UserInterface } from '../../interfaces/User.interface';
 import { GitHubUsersApiResponseInterface } from '../../interfaces/GitHubUsersApiResponse.interface';
@@ -72,7 +72,7 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
                 <div className="row">
                     {this.state.isLoaded ? (
                         this.state.users.map((user: UserDetailsInterface, index: number) => (
-                            <GitHubUserCard user={user} key={index} />
+                            <UserCard user={user} key={index} />
                         ))
                     ) : (
                         <div className="col">Loading...</div>

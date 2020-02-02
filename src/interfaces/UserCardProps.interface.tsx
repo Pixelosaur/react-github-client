@@ -1,5 +1,5 @@
 import { UserDetailsInterface } from './UserDetails.interface';
 
-export interface GitHubUserCardPropsInterface {
+export interface UserCardPropsInterface {
     user: UserDetailsInterface;
 }
