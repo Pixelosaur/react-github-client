@@ -7,30 +7,30 @@ export default class Navigation extends Component<{}, NavigationStateInterface> 
         currentPath: 'github-users',
     };
 
-    updateCurrentPath(): void {
-        this.state.currentPath === 'github-users'
-            ? this.setState({ currentPath: 'following' })
-            : this.setState({ currentPath: 'github-users' });
+    isGitHubUsersPageActive: boolean = true;
+    isFollowingPageActive: boolean = false;
+
+    updateCurrentPath(path: string): void {
+        this.isFollowingPageActive = path === 'following';
+        this.isGitHubUsersPageActive = path === 'github-users';
+
+        this.setState({ currentPath: path });
     }
 
     render() {
         return (
             <nav className="nav">
                 <Link
-                    className={`nav-link mr-2 ${
-                        this.state.currentPath === 'github-users' ? 'active' : null
-                    }`}
+                    className={`nav-link mr-2 ${this.isGitHubUsersPageActive ? 'active' : ''}`}
                     to="/"
-                    onClick={this.updateCurrentPath.bind(this)}
+                    onClick={() => this.updateCurrentPath('github-users')}
                 >
                     GitHub Users
                 </Link>
                 <Link
-                    className={`nav-link mr-2 ${
-                        this.state.currentPath === 'following' ? 'active' : null
-                    }`}
+                    className={`nav-link mr-2 ${this.isFollowingPageActive ? 'active' : ''}`}
                     to="/following"
-                    onClick={this.updateCurrentPath.bind(this)}
+                    onClick={() => this.updateCurrentPath('following')}
                 >
                     Following
                 </Link>
