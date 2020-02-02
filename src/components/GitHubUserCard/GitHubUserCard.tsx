@@ -52,7 +52,7 @@ export default class GitHubUserCard extends Component<GitHubUserCardPropsInterfa
                             </ul>
                         </div>
 
-                        <Link className="card-link" to="/">
+                        <Link className="card-link" to={`/github-users/${this.props.user.login}`}>
                             View Repositories
                         </Link>
                     </div>

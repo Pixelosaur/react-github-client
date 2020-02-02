@@ -5,6 +5,7 @@ import Navigation from './components/Navigation/Navigation';
 import { Route, Switch, Redirect } from 'react-router';
 import GitHubUsers from './pages/GitHubUsers/GitHubUsers';
 import Following from './pages/Following/Following';
+import GitHubUser from './pages/GitHubUser/GitHubUser';
 
 class App extends Component {
     render() {
@@ -23,9 +24,10 @@ class App extends Component {
                 <div className="row">
                     <div className="col">
                         <Switch>
-                            <Route path="/github-users" component={GitHubUsers} />
-                            <Route path="/following" component={Following} />
-                            <Redirect from="/" to="github-users" exact/>
+                            <Route path="/github-users" component={GitHubUsers} exact />
+                            <Route path="/github-users/:username" component={GitHubUser} exact />
+                            <Route path="/following" component={Following} exact />
+                            <Redirect from="/" to="github-users" exact />
                         </Switch>
                     </div>
                 </div>
