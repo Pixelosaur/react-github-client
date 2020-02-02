@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import GitHubUserCard from '../../components/GitHubUserCard/GitHubUserCard';
 import Pagination from '../../components/Pagination/Pagination';
 import { UserInterface } from '../../interfaces/User.interface';
-import { GitHubApiResponseInterface } from '../../interfaces/GitHubApiResponse.interface';
+import { GitHubUsersApiResponseInterface } from '../../interfaces/GitHubUsersApiResponse.interface';
 import { UsersStateInterface } from '../../interfaces/UsersState.interface';
 import { UserDetailsInterface } from '../../interfaces/UserDetails.interface';
 
@@ -35,10 +35,10 @@ export default class GitHubUsers extends Component<{}, UsersStateInterface> {
             per_page: this.state.pageSize,
         };
         axios
-            .get<GitHubApiResponseInterface>(url, {
+            .get<GitHubUsersApiResponseInterface>(url, {
                 params,
             })
-            .then((response: AxiosResponse<GitHubApiResponseInterface>) => {
+            .then((response: AxiosResponse<GitHubUsersApiResponseInterface>) => {
                 return Promise.all(
                     response.data.items.map((user: UserInterface) =>
                         this.getSingleUser(user.login),

@@ -1,6 +1,6 @@
 import { UserInterface } from './User.interface';
 
-export interface GitHubApiResponseInterface {
+export interface GitHubUsersApiResponseInterface {
     total_count: number;
     items: UserInterface[];
 }
